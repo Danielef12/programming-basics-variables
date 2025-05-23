@@ -13,4 +13,6 @@ area = float(width) * float(length)
 
 print(f"The area of the room is: {float(area)} mq")
 
+print("Thanks for use")
+
 
