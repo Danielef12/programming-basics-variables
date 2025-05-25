@@ -212,16 +212,16 @@ dinner_carbs = (foods["salmon"][2] * qty_salmon / 100) + (foods["quinoa"][2] * q
 dinner_fat = (foods["salmon"][3] * qty_salmon / 100) + (foods["quinoa"][3] * qty_quinoa / 100) + (foods["spinach"][3] * qty_spinach / 100) + (foods["olive oil"][3] * qty_oil / 100)
 print(f"Total Dinner macros: protein {dinner_protein:.0f}g | carbs {dinner_carbs:.0f}g | fat {dinner_fat:.0f}g\n")
 
-total_protein_day = breakfast_protein + snak_protein + lunch_protein + dinner_protein
-total_carbs_day = breakfast_carbs +snak_carbs + lunch_carbs + dinner_carbs
-total_fat_day = breakfast_fat + snak_fat + lunch_fat + dinner_fat
+total_protein_day = int(breakfast_protein + snak_protein + lunch_protein + dinner_protein)
+total_carbs_day = int(breakfast_carbs +snak_carbs + lunch_carbs + dinner_carbs)
+total_fat_day = int(breakfast_fat + snak_fat + lunch_fat + dinner_fat)
 
 print("-" * 60)
 print(f"The amount of macronutrients for the day is: ")
 print("-" * 60)
-print(f"\n- Protein: {total_protein_day:.0f}g")
-print(f"- Carbs: {total_carbs_day:.0f}g")
-print(f"- Fat: {total_fat_day:.0f}g\n\n")
+print(f"\n- Protein: {total_protein_day}g")
+print(f"- Carbs: {total_carbs_day}g")
+print(f"- Fat: {total_fat_day}g\n\n")
 
 
 print("*" * 60)
