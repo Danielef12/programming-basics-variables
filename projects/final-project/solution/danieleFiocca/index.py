@@ -49,14 +49,14 @@ if gender == "male":
 elif gender == "female":
     basal = 10 * weight + 6.25 * height - 5 * age - 161
 
-calories = basal * activity_val
+calories = round(basal * activity_val)
 
 # I divide the calories for all the meals of the day
 
-breakfast_percentage = calories * 0.25
-lunch_percentage = calories * 0.35
-dinner_percentage = calories * 0.30
-snack_percentage = calories * 0.10
+breakfast_percentage = round(calories * 0.25)
+lunch_percentage = round(calories * 0.35)
+dinner_percentage = round(calories * 0.30)
+snack_percentage = round(calories * 0.10)
 
 # I create a dictionary with foods and their macros
 # food are organized in [calories, protein, carbs, fat] in 100g
@@ -84,62 +84,62 @@ foods = {
 # Breakfast: Oatmeal(40%) + milk(30%) + banana(20%) + almonds(10%)
 oatmeal_ratio = 0.4  # percentuale assegnata a quel pasto
 oatmeal_calorie_need = breakfast_percentage * oatmeal_ratio
-qty_oatmeal = (oatmeal_calorie_need / foods["oatmeal"][0]) * 100 # grams needed 
+qty_oatmeal = round((oatmeal_calorie_need / foods["oatmeal"][0]) * 100) # grams needed 
 
 milk_ratio = 0.3
 milk_calorie_need = breakfast_percentage * milk_ratio
-qty_milk = (milk_calorie_need / foods["milk"][0]) * 100 
+qty_milk = round((milk_calorie_need / foods["milk"][0]) * 100) 
 
 banana_ratio = 0.2
 banana_calorie_need = breakfast_percentage * banana_ratio
-qty_banana = (banana_calorie_need / foods["banana"][0]) * 100
+qty_banana = round((banana_calorie_need / foods["banana"][0]) * 100)
 
 almonds_ratio = 0.1
 almonds_calorie_need = breakfast_percentage * almonds_ratio
-qty_almonds = (almonds_calorie_need / foods["almonds"][0]) * 100
+qty_almonds = round((almonds_calorie_need / foods["almonds"][0]) * 100)
 
 # break: Apple(50%) + Walnuts(50%)
 apple_ratio = 0.5
 apple_calorie_need = snack_percentage * apple_ratio
-qty_apple = (apple_calorie_need / foods["apple"][0]) * 100
+qty_apple = round((apple_calorie_need / foods["apple"][0]) * 100)
 
 walnuts_ratio = 0.5
 walnuts_calorie_need = snack_percentage * walnuts_ratio
-qty_walnuts = (walnuts_calorie_need / foods["walnuts"][0])* 100
+qty_walnuts = round((walnuts_calorie_need / foods["walnuts"][0])* 100)
 
 # Lunch: Rice(40%) + chicken(35%) + Broccoli(15%) + Olive oil(10%)
 rice_ratio = 0.4
 rice_calorie_need = lunch_percentage * rice_ratio
-qty_rice = (rice_calorie_need / foods["rice"][0]) * 100
+qty_rice = round((rice_calorie_need / foods["rice"][0]) * 100)
 
 chicken_ratio = 0.35
 chicken_calorie_need = lunch_percentage * chicken_ratio
-qty_chicken = (chicken_calorie_need / foods["chicken breast"][0]) * 100
+qty_chicken = round((chicken_calorie_need / foods["chicken breast"][0]) * 100)
 
 broccoli_ratio = 0.15
 broccoli_calorie_need = lunch_percentage * broccoli_ratio
-qty_broccoli = (broccoli_calorie_need / foods["broccoli"][0]) * 100
+qty_broccoli = round((broccoli_calorie_need / foods["broccoli"][0]) * 100)
 
 oil_ratio = 0.1
 oil_calorie_need = lunch_percentage * oil_ratio
-qty_oil = (oil_calorie_need / foods["olive oil"][0]) * 100
+qty_oil = round((oil_calorie_need / foods["olive oil"][0]) * 100)
 
 # Dinner: Salmon(35%) + Quinoa(35%) + Spinach(20%) + Olive Oil(10%)
 salmon_ratio = 0.35
 salmon_calorie_need = dinner_percentage * salmon_ratio
-qty_salmon = (salmon_calorie_need / foods["salmon"][0]) * 100
+qty_salmon = round((salmon_calorie_need / foods["salmon"][0]) * 100)
 
 quinoa_ratio = 0.35
 quinoa_calorie_nees = dinner_percentage * quinoa_ratio
-qty_quinoa = (quinoa_calorie_nees / foods["quinoa"][0]) * 100
+qty_quinoa = round((quinoa_calorie_nees / foods["quinoa"][0]) * 100)
 
 spinach_ratio = 0.2
 spinach_calorie_need = dinner_percentage * spinach_ratio
-qty_spinach = (spinach_calorie_need / foods["spinach"][0]) * 100
+qty_spinach = round((spinach_calorie_need / foods["spinach"][0]) * 100)
 
 oil_ratio = 0.1
 oil_calorie_need = dinner_percentage * oil_ratio
-qty_oil = (oil_calorie_need / foods["olive oil"][0]) * 100
+qty_oil = round((oil_calorie_need / foods["olive oil"][0]) * 100)
 
 print("=" * 60)
 print("This is your plan of the day based on your data:")
@@ -153,7 +153,7 @@ print(f"- Weight: {weight}Kg")
 print(f"- Physical-Activities: {activity}\n")
 
 print("--- ANALYSES ---")
-print(f"Your daily calorie requirement is: {calories:.0f}Kcal.\n")
+print(f"Your daily calorie requirement is: {calories}Kcal.\n")
 
 
 
@@ -161,60 +161,60 @@ print(f"Your daily calorie requirement is: {calories:.0f}Kcal.\n")
 
 
 print("*" * 60)
-print(f"Breakfast {breakfast_percentage:.0f} cal")
+print(f"Breakfast {breakfast_percentage} cal")
 print("*" * 60)
 
-print(f"\nOatmeal: {qty_oatmeal:.0f} g")
-print(f"Milk: {qty_milk:.0f} g")
-print(f"Banana: {qty_banana:.0f} g")
-print(f"Almonds: {qty_almonds:.0f} g\n")
+print(f"\nOatmeal: {qty_oatmeal} g")
+print(f"Milk: {qty_milk} g")
+print(f"Banana: {qty_banana} g")
+print(f"Almonds: {qty_almonds} g\n")
 
-breakfast_protein = (foods["oatmeal"][1] * qty_oatmeal / 100) + (foods["milk"][1] * qty_milk / 100) + (foods["banana"][1] * qty_banana /100) + (foods["almonds"][1] * qty_almonds / 100)
-breakfast_carbs = (foods["oatmeal"][2] * qty_oatmeal / 100) + (foods["milk"][2] * qty_milk / 100) + (foods["banana"][2] * qty_banana /100) + (foods["almonds"][2] * qty_almonds / 100)
-breakfast_fat = (foods["oatmeal"][3] * qty_oatmeal / 100) + (foods["milk"][3] * qty_milk / 100) + (foods["banana"][3] * qty_banana /100) + (foods["almonds"][3] * qty_almonds / 100)
-print(f"Total breakfast macros: protein {breakfast_protein:.0f}g | carbs {breakfast_carbs:.0f}g | fat {breakfast_fat:.0f}g\n")
-
-print("*" * 60)
-print(f"Snak {snack_percentage:.0f} cal")
-print("*" * 60)
-
-print(f"\nApple: {qty_apple:.0f} g")
-print(f"Walnuts: {qty_walnuts:.0f} g\n")
-snak_protein = (foods["apple"][1] * qty_apple / 100) + (foods["walnuts"][1] * qty_walnuts / 100)
-snak_carbs = (foods["apple"][2] * qty_apple / 100) + (foods["walnuts"][2] * qty_walnuts / 100)
-snak_fat = (foods["apple"][3] * qty_apple / 100) + (foods["walnuts"][3] * qty_walnuts / 100)
-print(f"Total Snak macros: protein {snak_protein:.0f}g | carbs {snak_carbs:.0f}g | fat {snak_fat:.0f}g\n")
+breakfast_protein = round((foods["oatmeal"][1] * qty_oatmeal / 100) + (foods["milk"][1] * qty_milk / 100) + (foods["banana"][1] * qty_banana /100) + (foods["almonds"][1] * qty_almonds / 100))
+breakfast_carbs = round((foods["oatmeal"][2] * qty_oatmeal / 100) + (foods["milk"][2] * qty_milk / 100) + (foods["banana"][2] * qty_banana /100) + (foods["almonds"][2] * qty_almonds / 100))
+breakfast_fat = round((foods["oatmeal"][3] * qty_oatmeal / 100) + (foods["milk"][3] * qty_milk / 100) + (foods["banana"][3] * qty_banana /100) + (foods["almonds"][3] * qty_almonds / 100))
+print(f"Total breakfast macros: protein {breakfast_protein}g | carbs {breakfast_carbs}g | fat {breakfast_fat}g\n")
 
 print("*" * 60)
-print(f"Lunch {lunch_percentage:.0f} cal")
+print(f"Snak {snack_percentage} cal")
 print("*" * 60)
 
-print(f"\nRice {qty_rice:.0f}g")
-print(f"Chicken Breast {qty_chicken:.0f}g")
-print(f"Broccoli {qty_broccoli:.0f}g")
-print(f"Olive oil {qty_oil:.0f}g")
-lunch_protein = (foods["rice"][1] * qty_rice / 100) + (foods["chicken breast"][1] * qty_chicken / 100) + (foods["broccoli"][1] * qty_broccoli / 100) + (foods["olive oil"][1] * qty_oil / 100)
-lunch_carbs = (foods["rice"][2] * qty_rice / 100) + (foods["chicken breast"][2] * qty_chicken / 100) + (foods["broccoli"][2] * qty_broccoli / 100) + (foods["olive oil"][2] * qty_oil / 100)
-lunch_fat = (foods["rice"][3] * qty_rice / 100) + (foods["chicken breast"][3] * qty_chicken / 100) + (foods["broccoli"][3] * qty_broccoli / 100) + (foods["olive oil"][3] * qty_oil / 100)
-print(f"Total Lunch macros: protein {lunch_protein:.0f}g | carbs {lunch_carbs:.0f}g | fat {lunch_fat:.0f}g\n")
+print(f"\nApple: {qty_apple} g")
+print(f"Walnuts: {qty_walnuts} g\n")
+snak_protein = round((foods["apple"][1] * qty_apple / 100) + (foods["walnuts"][1] * qty_walnuts / 100))
+snak_carbs = round((foods["apple"][2] * qty_apple / 100) + (foods["walnuts"][2] * qty_walnuts / 100))
+snak_fat = round((foods["apple"][3] * qty_apple / 100) + (foods["walnuts"][3] * qty_walnuts / 100))
+print(f"Total Snak macros: protein {snak_protein}g | carbs {snak_carbs}g | fat {snak_fat}g\n")
 
 print("*" * 60)
-print(f"Dinner for {dinner_percentage:.0f} cal")
+print(f"Lunch {lunch_percentage} cal")
 print("*" * 60)
 
-print(f"\nSalmon {qty_salmon:.0f}g")
-print(f"Quinoa {qty_quinoa:.0f}g")
-print(f"Spinach {qty_spinach:.0f}g")
-print(f"Oliva oil {qty_oil:.0f}g\n")
+print(f"\nRice {qty_rice}g")
+print(f"Chicken Breast {qty_chicken}g")
+print(f"Broccoli {qty_broccoli}g")
+print(f"Olive oil {qty_oil}g")
+lunch_protein = round((foods["rice"][1] * qty_rice / 100) + (foods["chicken breast"][1] * qty_chicken / 100) + (foods["broccoli"][1] * qty_broccoli / 100) + (foods["olive oil"][1] * qty_oil / 100))
+lunch_carbs = round((foods["rice"][2] * qty_rice / 100) + (foods["chicken breast"][2] * qty_chicken / 100) + (foods["broccoli"][2] * qty_broccoli / 100) + (foods["olive oil"][2] * qty_oil / 100))
+lunch_fat = round((foods["rice"][3] * qty_rice / 100) + (foods["chicken breast"][3] * qty_chicken / 100) + (foods["broccoli"][3] * qty_broccoli / 100) + (foods["olive oil"][3] * qty_oil / 100))
+print(f"Total Lunch macros: protein {lunch_protein}g | carbs {lunch_carbs}g | fat {lunch_fat:}g\n")
 
-dinner_protein = (foods["salmon"][1] * qty_salmon / 100) + (foods["quinoa"][1] * qty_quinoa / 100) + (foods["spinach"][1] * qty_spinach / 100) + (foods["olive oil"][1] * qty_oil / 100)
-dinner_carbs = (foods["salmon"][2] * qty_salmon / 100) + (foods["quinoa"][2] * qty_quinoa / 100) + (foods["spinach"][2] * qty_spinach / 100) + (foods["olive oil"][2] * qty_oil / 100)
-dinner_fat = (foods["salmon"][3] * qty_salmon / 100) + (foods["quinoa"][3] * qty_quinoa / 100) + (foods["spinach"][3] * qty_spinach / 100) + (foods["olive oil"][3] * qty_oil / 100)
-print(f"Total Dinner macros: protein {dinner_protein:.0f}g | carbs {dinner_carbs:.0f}g | fat {dinner_fat:.0f}g\n")
+print("*" * 60)
+print(f"Dinner for {dinner_percentage} cal")
+print("*" * 60)
 
-total_protein_day = int(breakfast_protein + snak_protein + lunch_protein + dinner_protein)
-total_carbs_day = int(breakfast_carbs +snak_carbs + lunch_carbs + dinner_carbs)
-total_fat_day = int(breakfast_fat + snak_fat + lunch_fat + dinner_fat)
+print(f"\nSalmon {qty_salmon}g")
+print(f"Quinoa {qty_quinoa}g")
+print(f"Spinach {qty_spinach}g")
+print(f"Oliva oil {qty_oil}g\n")
+
+dinner_protein = round((foods["salmon"][1] * qty_salmon / 100) + (foods["quinoa"][1] * qty_quinoa / 100) + (foods["spinach"][1] * qty_spinach / 100) + (foods["olive oil"][1] * qty_oil / 100))
+dinner_carbs = round((foods["salmon"][2] * qty_salmon / 100) + (foods["quinoa"][2] * qty_quinoa / 100) + (foods["spinach"][2] * qty_spinach / 100) + (foods["olive oil"][2] * qty_oil / 100))
+dinner_fat = round((foods["salmon"][3] * qty_salmon / 100) + (foods["quinoa"][3] * qty_quinoa / 100) + (foods["spinach"][3] * qty_spinach / 100) + (foods["olive oil"][3] * qty_oil / 100))
+print(f"Total Dinner macros: protein {dinner_protein}g | carbs {dinner_carbs}g | fat {dinner_fat}g\n")
+
+total_protein_day = breakfast_protein + snak_protein + lunch_protein + dinner_protein
+total_carbs_day = breakfast_carbs +snak_carbs + lunch_carbs + dinner_carbs
+total_fat_day = breakfast_fat + snak_fat + lunch_fat + dinner_fat
 
 print("-" * 60)
 print(f"The amount of macronutrients for the day is: ")
